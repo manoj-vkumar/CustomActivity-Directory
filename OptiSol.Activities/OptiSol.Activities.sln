@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Directory", "Directory", "{F6A187CD-A21A-4DC6-A246-1B9F7858F405}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptiSol.Directory.Activities", "Directory\OptiSol.Directory.Activities\OptiSol.Directory.Activities.csproj", "{5483A932-6194-4B99-9F9F-295ACB313E2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MS_Azure", "MS_Azure", "{CB62B9EF-6B1E-449A-9E0E-8C2E77744D5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5483A932-6194-4B99-9F9F-295ACB313E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5483A932-6194-4B99-9F9F-295ACB313E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5483A932-6194-4B99-9F9F-295ACB313E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5483A932-6194-4B99-9F9F-295ACB313E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5483A932-6194-4B99-9F9F-295ACB313E2E} = {F6A187CD-A21A-4DC6-A246-1B9F7858F405}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50D16046-C98F-4F6B-9D3F-06BDE4830EB7}
+	EndGlobalSection
+EndGlobal
