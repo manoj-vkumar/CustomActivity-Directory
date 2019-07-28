@@ -4,56 +4,53 @@ using System.ComponentModel;
 using System.IO;
 
 namespace OptiSol.Directory {
+    [DisplayName(AttributeString.DisplayName_DeleteDirectoryFiles)]
+    [Description(AttributeString.Description_DeleteDirectoryFiles)]
     public class DeleteDirectoryFiles : CodeActivity {
-        //File(s) will be delete from this directory path.
-        [Category("Input")]
+        [Category(AttributeString.Category_Input)]
         [RequiredArgument]
         public InArgument<string> DirectoryPath { get; set; }
 
-        //File(s) will be considered if extension is matched, but default all.
-        [Category("Input")]
+        [Category(AttributeString.Category_Input)]
         public InArgument<string> FileExtension { get; set; }
 
-        //If it is a true, file(s) created date will be considered else or default last write date will be considered.
-        [Category("Input")]
-        public InArgument<bool> CreatedBy { get; set; }
+        [Category(AttributeString.Category_Input)]
+        public EnumTimestampCategory TimestampCategory { get; set; }
 
-        //How many days from today for the file(s) which is(are) should be getting from.
-        [Category("Input")]
+        [Category(AttributeString.Category_Input)]
         public InArgument<long> DayCountFrom { get; set; }
 
-        //How many days from today for the file(s) which is(are) should be getting to from DayCountFrom.
-        [Category("Input")]
+        [Category(AttributeString.Category_Input)]
         public InArgument<long> DayCountTo { get; set; }
 
-        //If it is a true, even continues with exception.
-        [Category("Common")]
-        public InArgument<bool> ContinueOnError { get; set; }
+        [Category(AttributeString.Category_Common)]
+        public EnumYesOrNo ContinueOnError { get; set; }
 
         private void DeleteFilesInDirectory(CodeActivityContext context) {
             try {
-                //Looping a files - Get directory files as array
-                foreach (string file in HelpperClass.GetDirectoryFiles(DirectoryPath: DirectoryPath.Get(context), FileExtension: FileExtension.Get(context), CreatedBy: CreatedBy.Get(context), DayCountFrom: DayCountFrom.Get(context), DayCountTo: DayCountTo.Get(context))) {
-                    // If throws an exception continues into a next
+                string _directoryPath = DirectoryPath.Get(context);
+                string _fileExtension = FileExtension.Get(context);
+                int _dayCountFrom = Convert.ToInt16(DayCountFrom.Get(context));
+                int _dayCountTo = Convert.ToInt16(DayCountTo.Get(context));
+                bool _timestampCategory = Convert.ToBoolean((int)TimestampCategory);
+                string[] fileList = Helper.DirectoryHelper.GetDirectoryFiles(directoryPath: _directoryPath, fileExtension: _fileExtension, timestampCategory: _timestampCategory, dayCountFrom: _dayCountFrom, dayCountTo: _dayCountTo);
+
+                foreach (string file in fileList) {
                     try {
-                        // Deleting a files one by one
-                        File.Delete(file.ToString());
+                        File.Delete(file);
                     } catch (Exception ex) {
                         throw ex;
                     }
                 }
             } catch (Exception ex) {
-                if (ContinueOnError.Get(context)) {
-                    //Exception not throws
+                if (Convert.ToBoolean((int)ContinueOnError)) {
                 } else {
-                    //Exception throws
                     throw ex;
                 }
             }
         }
 
         protected override void Execute(CodeActivityContext context) {
-            //Delete files from directory
             DeleteFilesInDirectory(context);
         }
     }

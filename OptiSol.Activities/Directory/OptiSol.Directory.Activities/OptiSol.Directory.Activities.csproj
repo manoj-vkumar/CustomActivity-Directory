@@ -43,12 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CopyDirectoryFiles.cs" />
+    <Compile Include="ConstantString.cs" />
+    <Compile Include="CopyMoveDirectoryFiles.cs" />
     <Compile Include="DeleteDirectoryFiles.cs" />
     <Compile Include="GetDirectoryFiles.cs" />
-    <Compile Include="HelpperClass.cs" />
-    <Compile Include="MoveDirectoryFiles.cs" />
+    <Compile Include="Helper\DirectoryHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Delete.png" />
+    <Content Include="Images\CopyMove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

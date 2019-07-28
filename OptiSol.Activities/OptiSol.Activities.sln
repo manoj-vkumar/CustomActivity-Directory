@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Directory", "Directory", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptiSol.Directory.Activities", "Directory\OptiSol.Directory.Activities\OptiSol.Directory.Activities.csproj", "{5483A932-6194-4B99-9F9F-295ACB313E2E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MS_Azure", "MS_Azure", "{CB62B9EF-6B1E-449A-9E0E-8C2E77744D5B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
